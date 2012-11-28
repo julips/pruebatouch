@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+	<script type="text/javascript" src="cordova-2.2.0.js"></script>
+
+	 <script type="text/javascript">
+        function onBodyLoad()        {                
+                document.addEventListener("deviceready", onDeviceReady, false);
+        }
+        
+        function onDeviceReady()        {
+                // do your thing!
+                var gnStartX = 0;
+                var gnStartY = 0;
+                var gnEndX = 0;
+                var gnEndY = 0;
+
+                document.addEventListener('touchstart',function(event) {
+                        //e.preventDefault();
+                        gnStartX = event.touches[0].pageX;
+                        gnStartY = event.touches[0].pageY;
+                        alert('X= '+gnStartX+' Y='+gnStartY);
+                },false);
+
+                document.addEventListener('touchmove',function(event) {
+                        //e.preventDefault();
+                        gnEndX = event.touches[0].pageX;
+                        gnEndY = event.touches[0].pageY;
+                        alert('X= '+gnEndX+' Y='+gnEndY);
+                        
+                },false);
+
+                document.addEventListener('touchend',function(event) {
+                        e.preventDefault();
+                        alert('START (' + gnStartX + ', ' + gnStartY + ')   END (' + gnEndX + ', ' + gnEndY + ')');
+                },false);                
+        }
+    
+    </script>
+
+  <body onload="onBodyLoad()">
+	Touch events
+        
+  </body>
+</html>
